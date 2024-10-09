@@ -110,3 +110,10 @@
     @apply text-[32px] leading-[44px] font-semibold;
   }
 }
+
+span.flicking-pagination-bullet {
+  width: 11px;
+  height: 11px;
+  margin: 0 8px;
+  position: relative;
+}
