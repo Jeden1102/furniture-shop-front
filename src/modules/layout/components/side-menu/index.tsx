@@ -10,6 +10,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 const SideMenuItems = {
   Home: "/",
   Products: "/store",
+  Insiprations: "/inspirations",
   Account: "/account",
   Cart: "/cart",
 }
