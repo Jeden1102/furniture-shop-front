@@ -117,3 +117,7 @@ span.flicking-pagination-bullet {
   margin: 0 8px;
   position: relative;
 }
+
+.flicking-viewport {
+  padding-top: 90px;
+}
