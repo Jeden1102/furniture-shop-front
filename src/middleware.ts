@@ -18,16 +18,21 @@ async function getRegionMap() {
     !regionMap.keys().next().value ||
     regionMapUpdated < Date.now() - 3600 * 1000
   ) {
-    const x2 = await axios.get(`${BACKEND_URL}/store/regions`);
+    try {
+      const x2 = await axios.get(`${BACKEND_URL}/store/regions`);
 
-    console.log(x2, "HERE1")
+      console.log(x2, "HERE1")
+    } catch(err) {
+      console.log("ERR", err)
+    }
+
 
     const x = await fetch(`${BACKEND_URL}/store/regions`, {
       credentials: "include",
     })
     .then((response) => response.json())
-    .then(({ xyz }) => {
-      console.log(xyz.length, xyz, "HERE<--")
+    .then(({ regions }) => {
+      console.log(regions.length, regions, "HERE<--")
       // show customers available regions
     })
     // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.

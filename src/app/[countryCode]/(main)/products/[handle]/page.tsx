@@ -84,7 +84,11 @@ const getPricedProductByHandle = async (handle: string, region: Region) => {
 }
 
 export default async function ProductPage({ params }: Props) {
+const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
+
   const region = await getRegion(params.countryCode)
+  const x2 = await axios.get(`${BACKEND_URL}/store/regions`);
+  console.log(x2, 'here!!');
 
   if (!region) {
     notFound()
