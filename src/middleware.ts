@@ -1,7 +1,6 @@
 import { Region } from "@medusajs/medusa"
 import { notFound } from "next/navigation"
 import { NextRequest, NextResponse } from "next/server"
-import axios from 'axios';
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"
@@ -18,15 +17,6 @@ async function getRegionMap() {
     !regionMap.keys().next().value ||
     regionMapUpdated < Date.now() - 3600 * 1000
   ) {
-    try {
-      const x2 = await axios.get(`${BACKEND_URL}/store/regions`);
-
-      console.log(x2, "HERE1")
-    } catch(err) {
-      console.log("ERR", err)
-    }
-
-
     const x = await fetch(`${BACKEND_URL}/store/regions`, {
       credentials: "include",
     })
