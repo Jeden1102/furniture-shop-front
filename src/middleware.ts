@@ -17,40 +17,30 @@ async function getRegionMap() {
     !regionMap.keys().next().value ||
     regionMapUpdated < Date.now() - 3600 * 1000
   ) {
-    try {
-      // Fetch regions from Medusa
-      const response = await fetch(`${BACKEND_URL}/store/regions`, { cache: 'no-store' });
+    // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
+    const { regions } = await fetch(`${BACKEND_URL}/store/regions`, {
+      next: {
+        revalidate: 3600,
+        tags: ["regions"],
+      },
+    }).then((res) => res.json())
 
-      // Sprawdź, czy odpowiedź jest poprawna
-      if (!response.ok) {
-        throw new Error(`Failed to fetch regions: ${response}`);
-      }
-
-      const { regions } = await response.json();
-
-      // Sprawdź, czy zwrócone dane są poprawne
-      if (!regions || regions.length === 0) {
-        console.error("No regions found in response:", regions);
-        notFound(); // Zwrotka 404, jeśli regiony nie są dostępne
-      }
-
-      // Przetwarzanie danych regionów
-      regions.forEach((region: Region) => {
-        region.countries.forEach((c) => {
-          regionMapCache.regionMap.set(c.iso_2, region);
-        });
-      });
-
-      regionMapCache.regionMapUpdated = Date.now();
-    } catch (error) {
-      console.error("Error fetching regions:", error);
-      notFound(); // Jeśli pojawił się błąd, zwracamy 404
+    if (!regions) {
+      notFound()
     }
+
+    // Create a map of country codes to regions.
+    regions.forEach((region: Region) => {
+      region.countries.forEach((c) => {
+        regionMapCache.regionMap.set(c.iso_2, region)
+      })
+    })
+
+    regionMapCache.regionMapUpdated = Date.now()
   }
 
-  return regionMapCache.regionMap;
+  return regionMapCache.regionMap
 }
-
 
 /**
  * Fetches regions from Medusa and sets the region cookie.
@@ -149,4 +139,5 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: ["/((?!api|_next|_vercel\\..*|images).*?)"],
+  runtime: 'nodejs'
 }
