@@ -1,3 +1,4 @@
+import { listRegions } from "@lib/data"
 import { Region } from "@medusajs/medusa"
 import { notFound } from "next/navigation"
 import { NextRequest, NextResponse } from "next/server"
@@ -17,6 +18,18 @@ async function getRegionMap() {
     !regionMap.keys().next().value ||
     regionMapUpdated < Date.now() - 3600 * 1000
   ) {
+  const regions2 = await listRegions()
+
+  console.log("regions2  here =>", regions2);
+
+    const x = await fetch(`${BACKEND_URL}/store/regions`, {
+      credentials: "include",
+    })
+    .then((response) => response.json())
+    .then(({ xyz }) => {
+      console.log(xyz.length, xyz, "HERE<--")
+      // show customers available regions
+    })
     // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
     let { regions } = await fetch(`${BACKEND_URL}/store/regions`, {
       next: {
