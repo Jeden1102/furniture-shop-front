@@ -19,30 +19,30 @@ type Props = {
 
 export const PRODUCT_LIMIT = 12
 
-export async function generateStaticParams() {
-  const { collections } = await getCollectionsList()
+// export async function generateStaticParams() {
+//   const { collections } = await getCollectionsList()
 
-  if (!collections) {
-    return []
-  }
+//   if (!collections) {
+//     return []
+//   }
 
-  const countryCodes = await listRegions().then((regions) =>
-    regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
-  )
+//   const countryCodes = await listRegions().then((regions) =>
+//     regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
+//   )
 
-  const collectionHandles = collections.map((collection) => collection.handle)
+//   const collectionHandles = collections.map((collection) => collection.handle)
 
-  const staticParams = countryCodes
-    ?.map((countryCode) =>
-      collectionHandles.map((handle) => ({
-        countryCode,
-        handle,
-      }))
-    )
-    .flat()
+//   const staticParams = countryCodes
+//     ?.map((countryCode) =>
+//       collectionHandles.map((handle) => ({
+//         countryCode,
+//         handle,
+//       }))
+//     )
+//     .flat()
 
-  return staticParams
-}
+//   return staticParams
+// }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const collection = await getCollectionByHandle(params.handle)

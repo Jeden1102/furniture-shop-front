@@ -13,30 +13,30 @@ type Props = {
   }
 }
 
-export async function generateStaticParams() {
-  const product_categories = await listCategories()
+// export async function generateStaticParams() {
+//   const product_categories = await listCategories()
 
-  if (!product_categories) {
-    return []
-  }
+//   if (!product_categories) {
+//     return []
+//   }
 
-  const countryCodes = await listRegions().then((regions) =>
-    regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
-  )
+//   const countryCodes = await listRegions().then((regions) =>
+//     regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
+//   )
 
-  const categoryHandles = product_categories.map((category) => category.handle)
+//   const categoryHandles = product_categories.map((category) => category.handle)
 
-  const staticParams = countryCodes
-    ?.map((countryCode) =>
-      categoryHandles.map((handle) => ({
-        countryCode,
-        category: [handle],
-      }))
-    )
-    .flat()
+//   const staticParams = countryCodes
+//     ?.map((countryCode) =>
+//       categoryHandles.map((handle) => ({
+//         countryCode,
+//         category: [handle],
+//       }))
+//     )
+//     .flat()
 
-  return staticParams
-}
+//   return staticParams
+// }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
