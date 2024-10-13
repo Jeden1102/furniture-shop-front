@@ -25,6 +25,7 @@ async function getRegionMap() {
       console.log(regions, "HERE<--")
       // show customers available regions
     })
+    console.warn("HERE", x)
     // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
     let { regions } = await fetch(`${BACKEND_URL}/store/regions`, {
       next: {
