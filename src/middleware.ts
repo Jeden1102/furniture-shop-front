@@ -19,16 +19,11 @@ async function getRegionMap() {
   ) {
     try {
       // Fetch regions from Medusa
-      const response = await fetch(`${BACKEND_URL}/store/regions`, {
-        next: {
-          revalidate: 3600,
-          tags: ["regions"],
-        },
-      });
+      const response = await fetch(`${BACKEND_URL}/store/regions`, { cache: 'no-store' });
 
       // Sprawdź, czy odpowiedź jest poprawna
       if (!response.ok) {
-        throw new Error(`Failed to fetch regions: ${response.statusText}`);
+        throw new Error(`Failed to fetch regions: ${response}`);
       }
 
       const { regions } = await response.json();
