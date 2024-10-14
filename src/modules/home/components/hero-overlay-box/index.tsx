@@ -2,9 +2,9 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 const HeroOverlayBox = () => {
   return (
-    <div className="absolute p-8 md:p-12 md:max-w-[470px] shadow-sm  bg-white/50 left-1/2 w-11/12 -translate-x-1/2 md:translate-x-0 md:left-24 top-12 z-50 backdrop-blur-lg flex flex-col gap-4 md:gap-8">
+    <div className="absolute p-8 md:p-12 md:max-w-[470px] shadow-sm  bg-white/50 left-1/2 w-11/12 -translate-x-1/2 md:translate-x-0 md:left-24 top-12 z-10 backdrop-blur-lg flex flex-col gap-4 md:gap-8">
       <h1 className="font-semibold text-3xl lg:text-6xl lg:leading-[72px]">
-        High-Quality Furniture Just For You
+        High-Quality Furniture Just For YouX
       </h1>
       <p className="font-light md:text-lg">
         Our furniture is made from selected and best quality materials that are

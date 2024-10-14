@@ -31,7 +31,7 @@ const HeroSlider = () => {
         <div className="hidden lg:block  flicking-pagination !top-12 !w-fit !left-3/4"></div>
       </ViewportSlot>
 
-      <div className="panel mx-4 pr-4">
+      <div className="panel md:mx-4 md:pr-4">
         <HeroSliderItem
           img="/images/sofa-1.png"
           title="Bohauss"
@@ -39,7 +39,7 @@ const HeroSlider = () => {
           price="299.99"
         />
       </div>
-      <div className="panel mx-4 pr-4">
+      <div className="panel md:mx-4 md:pr-4">
         <HeroSliderItem
           img="/images/sofa-1.png"
           title="Test title"
@@ -47,7 +47,7 @@ const HeroSlider = () => {
           price="299.99"
         />
       </div>
-      <div className="panel mx-4 pr-4">
+      <div className="panel md:mx-4 md:pr-4">
         <HeroSliderItem
           img="/images/sofa-1.png"
           title="Test title"
