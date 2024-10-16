@@ -109,6 +109,12 @@
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
   }
+
+  button.bg-ui-button-inverted {
+    --tw-shadow: none;
+    @apply bg-primary border-none;
+  }
+
 }
 
 span.flicking-pagination-bullet {
