@@ -12,7 +12,7 @@ import Image from "next/image"
 
 const HeroSlider = () => {
   const plugins = [
-    new AutoPlay({ duration: 210000, direction: "NEXT", stopOnHover: true }),
+    new AutoPlay({ duration: 10000, direction: "NEXT", stopOnHover: true }),
     new Arrow(),
     new Pagination({ type: "bullet" }),
   ]
