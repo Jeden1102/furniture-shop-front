@@ -1,4 +1,4 @@
-name: Medusa NextJS Template Tests
+name: Tests run
 
 on:
   push:

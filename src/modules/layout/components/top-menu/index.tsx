@@ -5,13 +5,9 @@ import { XMark, BarsThree, ShoppingBag } from "@medusajs/icons"
 import { Region } from "@medusajs/medusa"
 import { Text, clx, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
+import { menuItems } from "@lib/util/menu-items"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-const TopMenuItems = {
-  Home: "/",
-  Products: "/store",
-  Insiprations: "/inspirations",
-}
 
 const TopMenu = ({ regions }: { regions: Region[] | null }) => {
   const toggleState = useToggleState()
@@ -19,7 +15,7 @@ const TopMenu = ({ regions }: { regions: Region[] | null }) => {
   return (
     <div className="h-full flex items-center">
       <ul className="flex gap-10">
-        {Object.entries(TopMenuItems).map(([name, href]) => {
+        {Object.entries(menuItems).map(([name, href]) => {
           return (
             <li key={name}>
               <LocalizedClientLink

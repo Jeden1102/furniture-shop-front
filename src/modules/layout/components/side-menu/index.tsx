@@ -7,10 +7,9 @@ import { Text, clx, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { menuItems } from "@lib/util/menu-items"
 const SideMenuItems = {
-  Home: "/",
-  Products: "/store",
-  Insiprations: "/inspirations",
+  ...menuItems,
   Account: "/account",
   Cart: "/cart",
 }
@@ -71,7 +70,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                     </ul>
                     <div className="flex flex-col gap-y-6">
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} Furniro. All rights
                         reserved.
                       </Text>
                     </div>
