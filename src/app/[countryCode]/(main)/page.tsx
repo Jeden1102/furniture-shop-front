@@ -18,7 +18,7 @@ const getCollectionsWithProducts = cache(
   async (
     countryCode: string
   ): Promise<ProductCollectionWithPreviews[] | null> => {
-    const { collections } = await getCollectionsList(0, 3)
+    const { collections } = await getCollectionsList(0, 4)
 
     if (!collections) {
       return null
@@ -70,7 +70,7 @@ export default async function Home({
   return (
     <>
       <Hero />
-      <FeaturesIcons/>
+      <FeaturesIcons />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
