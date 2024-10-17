@@ -28,6 +28,8 @@ export default async function ProductPreview({
     return null
   }
 
+  console.log(pricedProduct.images?.[0])
+
   const { cheapestPrice } = getProductPrice({
     product: pricedProduct,
     region,
@@ -41,10 +43,20 @@ export default async function ProductPreview({
       >
         <div data-testid="product-wrapper">
           <Thumbnail
+            className="group-hover:hidden"
             thumbnail={productPreview.thumbnail}
             size="full"
             isFeatured={isFeatured}
           />
+          {pricedProduct.images?.[0] && (
+            <Thumbnail
+              className="hidden group-hover:block"
+              thumbnail={pricedProduct.images[0].url}
+              size="full"
+              isFeatured={isFeatured}
+            />
+          )}
+
           <div className="flex flex-col txt-compact-medium mt-4 justify-between">
             <Text className="text-lg font-normal" data-testid="product-title">
               {productPreview.title}

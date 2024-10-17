@@ -25,7 +25,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   const initialImage = thumbnail || images?.[0]?.url
 
   return (
-    <div data-testid={dataTestid}>
+    <div data-testid={dataTestid} className={className}>
       <ImageOrPlaceholder image={initialImage} size={size} />
     </div>
   )
