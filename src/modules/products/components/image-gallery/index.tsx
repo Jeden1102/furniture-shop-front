@@ -22,8 +22,9 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 priority={index <= 2 ? true : false}
                 className="rounded-rounded w-full"
                 alt={`Product image ${index + 1}`}
-                width={350}
-                height={350}
+                quality={100}
+                width={600}
+                height={600}
                 style={{
                   objectFit: "cover",
                 }}

@@ -41,6 +41,7 @@ const ImageOrPlaceholder = ({
       alt="Thumbnail"
       className="object-cover object-center w-72 mx-auto"
       draggable={false}
+      quality={100}
       width={250}
       height={250}
     />

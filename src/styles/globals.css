@@ -112,7 +112,7 @@
 
   button.bg-ui-button-inverted {
     --tw-shadow: none;
-    @apply bg-primary border-none;
+    @apply bg-primary border-none hover:bg-primary/90;
   }
 
 }
