@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import NextTopLoader from "nextjs-toploader"
 import Footer from "@modules/layout/templates/footer"
 import Nav from "@modules/layout/templates/nav"
+import { ApolloProvider } from "app/ApolloProvider"
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://localhost:8000"
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
-    <>
+    <ApolloProvider>
       <NextTopLoader
         color="#E89F71"
         initialPosition={0.08}
@@ -22,6 +23,6 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
       <Nav />
       {props.children}
       <Footer />
-    </>
+    </ApolloProvider>
   )
 }

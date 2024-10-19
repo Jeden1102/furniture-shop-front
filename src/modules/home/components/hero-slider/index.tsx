@@ -9,8 +9,20 @@ import { AutoPlay, Arrow, Pagination } from "@egjs/flicking-plugins"
 import "@egjs/flicking-plugins/dist/pagination.css"
 import HeroSliderItem from "../hero-slider-item"
 import Image from "next/image"
+import { useGetStrapiImg } from "@lib/util/strapi-img-uri"
 
-const HeroSlider = () => {
+type slide = {
+  url: string
+  title: string
+  description: string
+  price: string
+  image: {
+    url: string
+    alternativeText: string
+  }
+}
+
+const HeroSlider = ({ slides }: { slides: slide[] }) => {
   const plugins = [
     new AutoPlay({ duration: 10000, direction: "NEXT", stopOnHover: true }),
     new Arrow(),
@@ -31,30 +43,17 @@ const HeroSlider = () => {
         <div className="hidden lg:block  flicking-pagination !top-12 !w-fit !left-3/4"></div>
       </ViewportSlot>
 
-      <div className="panel md:mx-4 md:pr-4">
-        <HeroSliderItem
-          img="/images/sofa-1.png"
-          title="Bohauss"
-          subtitle="Luxury big sofa 2-seat"
-          price="299.99"
-        />
-      </div>
-      <div className="panel md:mx-4 md:pr-4">
-        <HeroSliderItem
-          img="/images/sofa-1.png"
-          title="Test title"
-          subtitle="Test subtitle test"
-          price="299.99"
-        />
-      </div>
-      <div className="panel md:mx-4 md:pr-4">
-        <HeroSliderItem
-          img="/images/sofa-1.png"
-          title="Test title"
-          subtitle="Test subtitle test"
-          price="299.99"
-        />
-      </div>
+      {slides &&
+        slides.map((slide) => (
+          <div key={slide.url} className="panel md:mx-4 md:pr-4">
+            <HeroSliderItem
+              img={useGetStrapiImg(slide.image.url)}
+              title={slide.title}
+              subtitle={slide.description}
+              price={slide.price}
+            />
+          </div>
+        ))}
     </Flicking>
   )
 }

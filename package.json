@@ -20,6 +20,7 @@
     "@types/react": "17.0.40"
   },
   "dependencies": {
+    "@apollo/client": "^3.11.8",
     "@egjs/flicking-plugins": "^4.7.1",
     "@egjs/react-flicking": "^4.11.4",
     "@headlessui/react": "^1.6.1",
@@ -37,6 +38,7 @@
     "@stripe/stripe-js": "^1.29.0",
     "algoliasearch": "^4.20.0",
     "axios": "^1.7.7",
+    "graphql": "^16.9.0",
     "lodash": "^4.17.21",
     "medusa-react": "^9.0.0",
     "next": "^14.0.0",
