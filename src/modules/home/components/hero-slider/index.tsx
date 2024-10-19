@@ -9,7 +9,7 @@ import { AutoPlay, Arrow, Pagination } from "@egjs/flicking-plugins"
 import "@egjs/flicking-plugins/dist/pagination.css"
 import HeroSliderItem from "../hero-slider-item"
 import Image from "next/image"
-import { useGetStrapiImg } from "@lib/util/strapi-img-uri"
+import { getStrapiImgUri } from "@lib/util/strapi-img-uri"
 
 type slide = {
   url: string
@@ -47,7 +47,7 @@ const HeroSlider = ({ slides }: { slides: slide[] }) => {
         slides.map((slide) => (
           <div key={slide.url} className="panel md:mx-4 md:pr-4">
             <HeroSliderItem
-              img={useGetStrapiImg(slide.image.url)}
+              img={getStrapiImgUri(slide.image.url)}
               title={slide.title}
               subtitle={slide.description}
               price={slide.price}
