@@ -60,7 +60,12 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
       </Table.Cell>
 
       <Table.Cell className="text-left">
-        <Text className="txt-medium-plus text-ui-fg-base" data-testid="product-title">{item.title}</Text>
+        <Text
+          className="txt-medium-plus text-ui-fg-base"
+          data-testid="product-title"
+        >
+          {item.title}
+        </Text>
         <LineItemOptions variant={item.variant} data-testid="product-variant" />
       </Table.Cell>
 
@@ -114,7 +119,6 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
               <LineItemUnitPrice item={item} region={region} style="tight" />
             </span>
           )}
-          <LineItemPrice item={item} region={region} style="tight" />
         </span>
       </Table.Cell>
     </Table.Row>

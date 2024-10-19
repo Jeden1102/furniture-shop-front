@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-
+import NextTopLoader from "nextjs-toploader"
 import Footer from "@modules/layout/templates/footer"
 import Nav from "@modules/layout/templates/nav"
 
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
 export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
     <>
+      <NextTopLoader
+        color="#E89F71"
+        initialPosition={0.08}
+        crawlSpeed={200}
+        showSpinner={false}
+        height={4}
+      />
       <Nav />
       {props.children}
       <Footer />
