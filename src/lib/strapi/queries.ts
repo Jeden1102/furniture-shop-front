@@ -17,7 +17,21 @@ export const HOMEPAGE_SLIDES = gql`
 
 export const HOMEPAGE_ARTICLES = gql`
   query Query {
-    articles {
+    articles(pagination: { page: 1, pageSize: 8 }) {
+      title
+      publishedAt
+      documentId
+      image {
+        url
+        alternativeText
+      }
+    }
+  }
+`
+
+export const GET_ARTICLE_BY_ID = gql`
+  query GetArticleById($documentId: ID!) {
+    article(documentId: $documentId) {
       title
       publishedAt
       documentId

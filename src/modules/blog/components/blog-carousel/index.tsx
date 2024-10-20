@@ -3,7 +3,7 @@
 import Flicking, { ViewportSlot } from "@egjs/react-flicking"
 import "@egjs/react-flicking/dist/flicking.css"
 import "@egjs/flicking-plugins/dist/arrow.css"
-import { AutoPlay, Arrow, Pagination } from "@egjs/flicking-plugins"
+import { Arrow, Pagination } from "@egjs/flicking-plugins"
 import "@egjs/flicking-plugins/dist/pagination.css"
 import { getStrapiImgUri } from "@lib/util/strapi-img-uri"
 import BlogTeaser from "../blog-teaser"
@@ -20,11 +20,7 @@ type slide = {
 }
 
 function BlogCarousel({ slides }: { slides: slide[] }) {
-  const plugins = [
-    new AutoPlay({ duration: 10000, direction: "NEXT", stopOnHover: true }),
-    new Arrow(),
-    new Pagination({ type: "bullet" }),
-  ]
+  const plugins = [new Arrow(), new Pagination({ type: "bullet" })]
 
   return (
     <div className="w-full flicking-p-20">
