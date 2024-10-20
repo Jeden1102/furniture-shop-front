@@ -44,8 +44,8 @@ const HeroSlider = ({ slides }: { slides: slide[] }) => {
       </ViewportSlot>
 
       {slides &&
-        slides.map((slide) => (
-          <div key={slide.url} className="panel md:mx-4 md:pr-4">
+        slides.map((slide, index) => (
+          <div key={index} className="panel md:mx-4 md:pr-4">
             <HeroSliderItem
               img={getStrapiImgUri(slide.image.url)}
               title={slide.title}

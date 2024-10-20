@@ -12,13 +12,13 @@ type Props = {
 
 const HeroSliderItem = ({ img, title, subtitle, price }: Props) => {
   return (
-    <div className="relative">
+    <div className="relative h-full">
       <Image
         src={img}
         alt="Sofa image"
         width="933"
         height="533"
-        className="pointer-events-none"
+        className="pointer-events-none h-full object-cover"
       />
       <div className="absolute px-8 py-6 min-w-108 shadow-lg  bg-white/40 right-8 bottom-8 backdrop-blur-lg">
         <p className="text-2xl font-medium">{title}</p>

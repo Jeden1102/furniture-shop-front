@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client"
 
 export const HOMEPAGE_SLIDES = gql`
-  query ExampleQuery {
+  query Query {
     homePageSlides {
       url
       title
@@ -11,6 +11,21 @@ export const HOMEPAGE_SLIDES = gql`
         alternativeText
       }
       description
+    }
+  }
+`
+
+export const HOMEPAGE_ARTICLES = gql`
+  query Query {
+    articles {
+      title
+      publishedAt
+      documentId
+      image {
+        url
+        alternativeText
+      }
+      content
     }
   }
 `

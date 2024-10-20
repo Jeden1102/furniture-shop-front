@@ -7,6 +7,7 @@ import Hero from "@modules/home/components/hero"
 import FeaturesIcons from "@modules/home/components/features-icons"
 import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
+import BlogCarousel from "@modules/blog/components/blog-carousel-wrapper"
 
 export const metadata: Metadata = {
   title: "Furniro",
@@ -76,6 +77,7 @@ export default async function Home({
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div>
+      <BlogCarousel />
     </>
   )
 }
