@@ -55,7 +55,7 @@
   }
 
   .content-container-narrow {
-    @apply max-w-[1060px] w-full mx-auto px-6;
+    @apply max-w-[1200px] w-full mx-auto px-6;
   }
 
   .contrast-btn {
@@ -119,6 +119,25 @@
     @apply bg-primary border-none hover:bg-primary/90;
   }
 
+  .blog h2 {
+      @apply text-2xl font-medium mb-4 mt-8;
+  }
+
+  .blog ul {
+    @apply list-disc list-inside;
+  }
+
+  .blog ol {
+    @apply list-decimal list-inside;
+  }
+
+  .blog a {
+    @apply text-primary font-medium;
+  }
+
+  .blog blockquote {
+    @apply italic font-normal text-gray-900 bg-primary/40 p-4 my-2 border-l-4 border-primary;
+  }
 }
 
 span.flicking-pagination-bullet {
@@ -133,5 +152,6 @@ span.flicking-pagination-bullet {
 }
 
 .flicking-p-20 .flicking-viewport {
-  padding: 16px 4px;
+  padding: 16px 4px 40px 4px;
 }
+

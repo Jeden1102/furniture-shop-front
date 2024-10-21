@@ -24,7 +24,7 @@ function BlogTeaserBig({ img, title, date, alt, documentId }: Props) {
           width={800}
           height={400}
           alt={alt}
-          className="h-72 object-cover"
+          className="h-72 object-cover w-full"
         />
         <div className="p-4 absolute bottom-0 bg-white/40 w-full backdrop-blur-lg text-white">
           <Badge size={"large"} color={"blue"}>

@@ -17,7 +17,21 @@ export const HOMEPAGE_SLIDES = gql`
 
 export const HOMEPAGE_ARTICLES = gql`
   query Query {
-    articles(pagination: { page: 1, pageSize: 8 }) {
+    articles(pagination: { page: 1, pageSize: 6 }, sort: "createdAt:desc") {
+      title
+      publishedAt
+      documentId
+      image {
+        url
+        alternativeText
+      }
+    }
+  }
+`
+
+export const RECENT_ARTICLES = gql`
+  query Query {
+    articles(pagination: { page: 1, pageSize: 3 }, sort: "createdAt:desc") {
       title
       publishedAt
       documentId

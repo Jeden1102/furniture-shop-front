@@ -1,6 +1,7 @@
 import { Container, Badge } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
+
 type Props = {
   img: string
   alt: string
@@ -18,7 +19,7 @@ function BlogTeaser({ img, title, date, alt, documentId }: Props) {
 
   return (
     <LocalizedClientLink href={`/blog/${documentId}`}>
-      <Container className="p-0 flex flex-col gap-4 shadow-md relative">
+      <Container className="p-0 flex flex-col gap-4 shadow-md relative w-[320px] h-full">
         <Image
           src={img}
           width={320}
@@ -26,7 +27,7 @@ function BlogTeaser({ img, title, date, alt, documentId }: Props) {
           alt={alt}
           className="h-48 object-cover"
         />
-        <div className="p-4">
+        <div className="p-4 mt-auto">
           <p className="text-lg">{title}</p>
           <p className="text-sm font-light text-gray-500">{formattedDate}</p>
         </div>

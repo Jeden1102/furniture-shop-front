@@ -1,17 +1,19 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-import ProductTemplate from "@modules/products/templates"
-import BlogPage from "@modules/blog/templates"
-
 import { createApolloClient } from "@lib/apolloClient"
 import { GET_ARTICLE_BY_ID } from "@lib/strapi/queries"
 import BlogTeaserBig from "@modules/blog/components/blog-teaser-big"
 import { getStrapiImgUri } from "@lib/util/strapi-img-uri"
+import Share from "../../share"
+import { Container } from "@medusajs/ui"
+import BlogRecent from "@modules/blog/components/blog-recent"
 
 type Props = {
   params: { id: string }
 }
+
+export const dynamic = "force-dynamic"
 
 // export async function generateMetadata({ params }: Props): Promise<Metadata> {
 //   const { handle } = params
@@ -68,18 +70,8 @@ export default async function ProductPage({ params }: Props) {
 
   if (!article) return
 
-  const formattedDate = new Date(article.publishedAt).toLocaleDateString(
-    "en-GB",
-    {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    }
-  )
-
-  console.log(article)
   return (
-    <div className="content-container-narrow py-20 flex gap-12 flex-col sm:flex-row">
+    <div className="content-container-narrow py-20 flex gap-12 flex-col md:flex-row">
       <div className="flex flex-col gap-20">
         <BlogTeaserBig
           img={getStrapiImgUri(article.image.url)}
@@ -88,9 +80,21 @@ export default async function ProductPage({ params }: Props) {
           date={article.publishedAt}
           documentId={article.documentId}
         />
-        <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
+        <div
+          className="blog"
+          dangerouslySetInnerHTML={{ __html: article.content }}
+        ></div>
       </div>
-      <div>side: share links + latest articles</div>
+      <div className="flex flex-col gap-8">
+        <Container>
+          <p className="font-medium">Share this post!</p>
+          <Share />
+        </Container>
+        <div>
+          <p className="mb-2">See other posts</p>
+          <BlogRecent />
+        </div>
+      </div>
     </div>
   )
 }

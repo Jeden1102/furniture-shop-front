@@ -28,12 +28,12 @@ function BlogCarousel({ slides }: { slides: slide[] }) {
         <ViewportSlot>
           <span className="flicking-arrow-prev  bg-white rounded-full !scale-75 before:!h-[4px] after:!h-[4px] shadow-lg"></span>
           <span className=" flicking-arrow-next  bg-white rounded-full !scale-75 before:!h-[4px] after:!h-[4px] shadow-lg"></span>
-          <div className=" flicking-pagination"></div>
+          <div className=" flicking-pagination absolute !bottom-0"></div>
         </ViewportSlot>
 
         {slides &&
           slides.map((slide, index) => (
-            <div key={index} className="panel md:mx-4 md:pr-4">
+            <div key={index} className="panel mr-4">
               <BlogTeaser
                 img={getStrapiImgUri(slide.image.url)}
                 alt={slide.image.alternativeText}
