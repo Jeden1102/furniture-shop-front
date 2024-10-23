@@ -57,3 +57,16 @@ export const GET_ARTICLE_BY_ID = gql`
     }
   }
 `
+export const HOMEPAGE_INSPIRATIONS = gql`
+  query Query {
+    inspirations {
+      title
+      subtitle
+      documentId
+      image {
+        url
+        alternativeText
+      }
+    }
+  }
+`

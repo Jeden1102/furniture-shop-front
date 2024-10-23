@@ -8,6 +8,7 @@ import FeaturesIcons from "@modules/home/components/features-icons"
 import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
 import BlogCarousel from "@modules/blog/components/blog-carousel-wrapper"
+import InspirationsSliderWrapper from "@modules/inspirations/components/inspirations-slider-wrapper"
 
 export const metadata: Metadata = {
   title: "Furniro",
@@ -78,6 +79,7 @@ export default async function Home({
         </ul>
       </div>
       <BlogCarousel />
+      <InspirationsSliderWrapper />
     </>
   )
 }
