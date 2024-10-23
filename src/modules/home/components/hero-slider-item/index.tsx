@@ -20,7 +20,7 @@ const HeroSliderItem = ({ img, title, subtitle, price }: Props) => {
         height="533"
         className="pointer-events-none h-full object-cover"
       />
-      <div className="absolute px-8 py-6 min-w-108 shadow-lg  bg-white/40 right-8 bottom-8 backdrop-blur-lg">
+      <div className="absolute px-8 py-6 w-96 shadow-lg  bg-white/40 right-8 bottom-8 backdrop-blur-lg">
         <p className="text-2xl font-medium">{title}</p>
         <p className="font-light">{subtitle}</p>
         <p className="font-medium flex items-center justify-between mt-3 text-lg">
