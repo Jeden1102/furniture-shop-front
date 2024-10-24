@@ -1,5 +1,3 @@
-import { Heading } from "@medusajs/ui"
-
 import { createApolloClient } from "@lib/apolloClient"
 import { HOMEPAGE_ARTICLES } from "@lib/strapi/queries"
 import BlogTeaserBig from "@modules/blog/components/blog-teaser-big"
@@ -33,7 +31,7 @@ const getArticles = async () => {
 async function BlogPage() {
   const articles = await getArticles()
   return (
-    <div className="content-container-narrow pb-12 md:pb-24">
+    <div className="content-container-narrow pb-12 md:pb-24 pt-20">
       {articles !== null && (
         <>
           <BlogTeaserBig

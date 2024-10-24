@@ -8,7 +8,7 @@ import "@egjs/flicking-plugins/dist/pagination.css"
 import { getStrapiImgUri } from "@lib/util/strapi-img-uri"
 import InspirationsSliderItem from "../inspirations-slider-item"
 
-type slide = {
+export type Inspiration = {
   title: string
   subtitle: string
   documentId: string
@@ -18,7 +18,7 @@ type slide = {
   }
 }
 
-function InspirationsSlider({ slides }: { slides: slide[] }) {
+function InspirationsSlider({ slides }: { slides: Inspiration[] }) {
   const plugins = [new Arrow()]
 
   return (
