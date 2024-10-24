@@ -2,7 +2,7 @@ import { Container, Badge } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 
-type Props = {
+type BlogProps = {
   img: string
   alt: string
   title: string
@@ -10,7 +10,7 @@ type Props = {
   documentId: string
 }
 
-function BlogTeaser({ img, title, date, alt, documentId }: Props) {
+function BlogTeaser({ img, title, date, alt, documentId }: BlogProps) {
   const formattedDate = new Date(date).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "short",

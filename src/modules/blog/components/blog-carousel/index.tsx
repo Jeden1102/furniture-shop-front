@@ -8,7 +8,7 @@ import "@egjs/flicking-plugins/dist/pagination.css"
 import { getStrapiImgUri } from "@lib/util/strapi-img-uri"
 import BlogTeaser from "../blog-teaser"
 
-type slide = {
+export type Blog = {
   url: string
   title: string
   publishedAt: string
@@ -19,7 +19,7 @@ type slide = {
   }
 }
 
-function BlogCarousel({ slides }: { slides: slide[] }) {
+function BlogCarousel({ slides }: { slides: Blog[] }) {
   const plugins = [new Arrow(), new Pagination({ type: "bullet" })]
 
   return (

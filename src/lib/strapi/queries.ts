@@ -70,3 +70,17 @@ export const HOMEPAGE_INSPIRATIONS = gql`
     }
   }
 `
+
+export const GET_ARTICLES = gql`
+  query Query {
+    articles(sort: "createdAt:desc") {
+      title
+      publishedAt
+      documentId
+      image {
+        url
+        alternativeText
+      }
+    }
+  }
+`
