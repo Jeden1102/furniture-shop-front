@@ -22,7 +22,7 @@ const getArticles = async () => {
 async function BlogCarouselWrapper() {
   const articles = await getArticles()
   return (
-    <div className="flex content-container pb-12 md:pb-24 flex-wrap justify-between">
+    <div className="flex content-container pb-12 md:pb-24 pr-0 sm:pr-6 flex-wrap justify-between">
       <Heading level="h2">Tips&Tricks</Heading>
       <BlogCarousel slides={articles} />
     </div>

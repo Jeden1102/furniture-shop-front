@@ -8,9 +8,17 @@ type BlogProps = {
   title: string
   date: string
   documentId: string
+  className?: string
 }
 
-function BlogTeaser({ img, title, date, alt, documentId }: BlogProps) {
+function BlogTeaser({
+  img,
+  title,
+  date,
+  alt,
+  documentId,
+  className,
+}: BlogProps) {
   const formattedDate = new Date(date).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "short",
@@ -19,13 +27,15 @@ function BlogTeaser({ img, title, date, alt, documentId }: BlogProps) {
 
   return (
     <LocalizedClientLink href={`/blog/${documentId}`}>
-      <Container className="p-0 flex flex-col gap-4 shadow-md relative w-[320px] h-full">
+      <Container
+        className={`p-0 flex flex-col gap-4 shadow-md relative w-[320px] h-full ${className}`}
+      >
         <Image
           src={img}
           width={320}
           height={240}
           alt={alt}
-          className="h-48 object-cover"
+          className="h-48 object-cover w-full"
         />
         <div className="p-4 mt-auto">
           <p className="text-lg">{title}</p>
