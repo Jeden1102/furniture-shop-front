@@ -15,27 +15,23 @@ type Props = {
 
 export const dynamic = "force-dynamic"
 
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//   const { handle } = params
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const article = await getArticleById(params.id)
 
-//   const { product } = await getProductByHandle(handle).then(
-//     (product) => product
-//   )
+  if (!article) {
+    notFound()
+  }
 
-//   if (!product) {
-//     notFound()
-//   }
-
-//   return {
-//     title: `${product.title} | Furniro`,
-//     description: `${product.title}`,
-//     openGraph: {
-//       title: `${product.title} | Furniro`,
-//       description: `${product.title}`,
-//       images: product.thumbnail ? [product.thumbnail] : [],
-//     },
-//   }
-// }
+  return {
+    title: `${article.title} | Furniro`,
+    description: `${article.title}`,
+    openGraph: {
+      title: `${article.title} | Furniro`,
+      description: `${article.title}`,
+      images: article.image,
+    },
+  }
+}
 
 type Article = {
   url: string
