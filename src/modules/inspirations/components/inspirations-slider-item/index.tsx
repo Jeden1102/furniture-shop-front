@@ -1,3 +1,4 @@
+import { getStrapiImgUri } from "@lib/util/strapi-img-uri"
 import { Container, Badge, Button } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
@@ -26,7 +27,7 @@ function InspirationsSliderItem({
       className={`p-0 flex flex-col gap-4 shadow-md relative w-[320px] h-full ${className}`}
     >
       <Image
-        src={img}
+        src={getStrapiImgUri(img)}
         width={320}
         height={400}
         alt={alt}
