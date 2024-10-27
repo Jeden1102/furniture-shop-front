@@ -57,6 +57,7 @@ export const GET_ARTICLE_BY_ID = gql`
     }
   }
 `
+
 export const HOMEPAGE_INSPIRATIONS = gql`
   query Query {
     inspirations {
@@ -80,6 +81,28 @@ export const GET_ARTICLES = gql`
       image {
         url
         alternativeText
+      }
+    }
+  }
+`
+
+export const GET_INSPIRATION_BY_ID = gql`
+  query Query($documentId: ID!) {
+    inspiration(documentId: $documentId) {
+      title
+      subtitle
+      documentId
+      image {
+        url
+        alternativeText
+      }
+      spot {
+        url
+        top
+        title
+        left
+        id
+        description
       }
     }
   }
