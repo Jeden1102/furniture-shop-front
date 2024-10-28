@@ -1,0 +1,12 @@
+1. Content:
+- homepage slides
+- inspirations
+- categories
+- products
+
+2. OThers:
+- 404 page
+- stripe + paypal integration
+- favourites products
+- mailing
+- search?
