@@ -6,7 +6,6 @@
 
 2. OThers:
 - 404 page
-- stripe + paypal integration
 - favourites products
 - mailing
 - search?
