@@ -40,6 +40,7 @@ function InspirationsImage({ spots, image, alt }: Props) {
         <div
           className="absolute"
           style={{ left: spot.left + "%", top: spot.top + "%" }}
+          key={index}
         >
           <Badge
             onClick={() => handleSpotClick(index)}
