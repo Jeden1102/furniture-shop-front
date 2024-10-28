@@ -107,3 +107,17 @@ export const GET_INSPIRATION_BY_ID = gql`
     }
   }
 `
+
+export const RECENT_INSPIRATIONS = gql`
+  query Query {
+    inspirations(pagination: { page: 1, pageSize: 3 }, sort: "createdAt:desc") {
+      title
+      publishedAt
+      documentId
+      image {
+        url
+        alternativeText
+      }
+    }
+  }
+`

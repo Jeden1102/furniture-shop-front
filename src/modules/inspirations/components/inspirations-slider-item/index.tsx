@@ -27,7 +27,7 @@ function InspirationsSliderItem({
       className={`p-0 flex flex-col gap-4 shadow-md relative w-[320px] h-full ${className}`}
     >
       <Image
-        src={getStrapiImgUri(img)}
+        src={img}
         width={320}
         height={400}
         alt={alt}

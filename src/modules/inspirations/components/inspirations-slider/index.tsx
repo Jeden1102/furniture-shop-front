@@ -8,6 +8,14 @@ import "@egjs/flicking-plugins/dist/pagination.css"
 import { getStrapiImgUri } from "@lib/util/strapi-img-uri"
 import InspirationsSliderItem from "../inspirations-slider-item"
 
+export type InspirationSpot = {
+  url: string
+  title: string
+  description: string
+  top: number
+  left: number
+}
+
 export type Inspiration = {
   title: string
   subtitle: string
@@ -16,6 +24,7 @@ export type Inspiration = {
     url: string
     alternativeText: string
   }
+  spot: InspirationSpot[]
 }
 
 function InspirationsSlider({ slides }: { slides: Inspiration[] }) {

@@ -1,38 +1,38 @@
 import { createApolloClient } from "@lib/apolloClient"
-import { RECENT_ARTICLES } from "@lib/strapi/queries"
+import { RECENT_INSPIRATIONS } from "@lib/strapi/queries"
 import { getStrapiImgUri } from "@lib/util/strapi-img-uri"
 import InspirationsSliderItem from "../inspirations-slider-item"
 import type { Inspiration } from "../inspirations-slider"
 
 const getInspirations = async () => {
   const client = createApolloClient()
-  let articles: Inspiration[] = []
+  let inspirations: Inspiration[] = []
 
   try {
     const { data } = await client.query({
-      query: RECENT_ARTICLES,
+      query: RECENT_INSPIRATIONS,
     })
 
-    articles = data.articles
+    inspirations = data.inspirations
   } catch (err) {}
 
-  return articles
+  return inspirations
 }
 
 async function InspirationsRecent() {
-  const articles = await getInspirations()
+  const inspirations = await getInspirations()
   return (
     <div className="flex flex-col gap-4">
-      {articles &&
-        articles.map((article, index) => (
+      {inspirations &&
+        inspirations.map((inspiration, index) => (
           <InspirationsSliderItem
             key={index}
             index={index}
-            img={getStrapiImgUri(article.image.url)}
-            alt={article.image.alternativeText}
-            title={article.title}
-            subtitle={article.subtitle}
-            documentId={article.documentId}
+            img={getStrapiImgUri(inspiration.image.url)}
+            alt={inspiration.image.alternativeText}
+            title={inspiration.title}
+            subtitle={inspiration.subtitle}
+            documentId={inspiration.documentId}
           />
         ))}
     </div>
