@@ -5,7 +5,6 @@
 - products
 
 2. OThers:
-- 404 page
 - favourites products
 - mailing
 - search?
