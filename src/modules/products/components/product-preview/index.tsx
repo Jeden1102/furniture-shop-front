@@ -9,6 +9,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Thumbnail from "../thumbnail"
 import PreviewPrice from "./price"
 import ProductTags from "./tags"
+import WishList from "./wishlist"
 
 export default async function ProductPreview({
   productPreview,
@@ -35,6 +36,9 @@ export default async function ProductPreview({
 
   return (
     <Container className="relative">
+      <div className="absolute left-4 top-4 z-10">
+        <WishList variant={pricedProduct.id} />
+      </div>
       <LocalizedClientLink
         href={`/products/${productPreview.handle}`}
         className="group"
@@ -72,6 +76,7 @@ export default async function ProductPreview({
             </div>
           </div>
         </div>
+
         <div className="absolute right-4 top-4 flex gap-2">
           {pricedProduct.tags && <ProductTags tags={pricedProduct.tags} />}
           {cheapestPrice?.price_type === "sale" && (
