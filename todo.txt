@@ -6,5 +6,3 @@
 
 2. OThers:
 - favourites products
-- mailing
-- search?
