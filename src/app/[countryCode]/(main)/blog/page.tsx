@@ -26,7 +26,6 @@ const getArticles = async () => {
     }
   } catch (err) {}
 
-  console.log(articles?.main, "HEREEEE")
   return articles
 }
 

@@ -28,7 +28,6 @@ const HeroSlider = ({ slides }: { slides: slide[] }) => {
     new Arrow(),
     new Pagination({ type: "bullet" }),
   ]
-  console.log(slides)
   return (
     <Flicking
       plugins={plugins}

@@ -52,7 +52,6 @@ const getInspirationById = async (id: string) => {
 
 export default async function InspirationPage({ params }: Props) {
   const inspiration = await getInspirationById(params.id)
-  console.log(inspiration)
   if (!inspiration) return
 
   return (

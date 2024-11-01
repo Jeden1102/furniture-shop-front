@@ -1,17 +1,37 @@
 "use client"
-import { addToWishlist } from "app/actions"
+import {
+  addToWishlist,
+  isInWishlist,
+  removeFromWishlist,
+} from "@lib/util/wishlist"
 import { Heart } from "@medusajs/icons"
+import { useState, useEffect } from "react"
 
 function WishList({ variant }: { variant: string | undefined }) {
-  const handleClick = async () => {
+  if (!variant) return
+  const [inWishlist, setInWishlist] = useState(false)
+
+  const handleClick = () => {
     if (!variant) return
-    const res = await addToWishlist(variant)
-    console.log("TERAZ", res, variant)
+    if (inWishlist) {
+      removeFromWishlist(variant)
+      setInWishlist(false)
+      return
+    }
+    addToWishlist(variant)
+    setInWishlist(true)
   }
+
+  useEffect(() => {
+    setInWishlist(isInWishlist(variant))
+  }, [])
 
   return (
     <button onClick={handleClick}>
-      <Heart />
+      <Heart
+        fill={inWishlist ? "red" : "transparent"}
+        color={inWishlist ? "red" : "black"}
+      />
     </button>
   )
 }

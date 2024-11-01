@@ -7,6 +7,7 @@ import SideMenu from "@modules/layout/components/side-menu"
 import TopMenu from "@modules/layout/components/top-menu"
 import { User, Heart } from "@medusajs/icons"
 import Image from "next/image"
+import WishlistBlock from "./components/wishlist-block"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
@@ -52,13 +53,9 @@ export default async function Nav() {
                   Search
                 </LocalizedClientLink>
               )}
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href="/favourites"
-                data-testid="nav-account-link"
-              >
-                <Heart />
-              </LocalizedClientLink>
+
+              <WishlistBlock />
+
               <LocalizedClientLink
                 className="hover:text-ui-fg-base"
                 href="/account"

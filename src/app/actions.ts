@@ -40,37 +40,3 @@ export async function resetOnboardingState(orderId: string) {
   cookies().set("_medusa_onboarding", "false", { maxAge: -1 })
   redirect(`http://localhost:7001/a/orders/${orderId}`)
 }
-
-export async function addToWishlist(variant: string) {
-  try {
-    const customer: Omit<Customer, "password_hash"> | null = await getCustomer()
-
-    if (!customer) return
-    const customerId = customer.id
-
-    const payload = {
-      variant_id: variant,
-    }
-
-    const response = await fetch(
-      `http://localhost:7001/a/store/customers/${customerId}/wishlist`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      }
-    )
-
-    if (!response.ok) {
-      throw new Error(`Failed to add item to wishlist: ${response.statusText}`)
-    }
-
-    const data = await response.json()
-    return data
-  } catch (error) {
-    console.error("Error adding item to wishlist:", error)
-    throw error
-  }
-}
