@@ -1,3 +1,4 @@
+"use client"
 import { useWishlistStore } from "@lib/store/wishlist"
 
 const LOCAL_STORAGE_KEY = "furniro_wishlist"

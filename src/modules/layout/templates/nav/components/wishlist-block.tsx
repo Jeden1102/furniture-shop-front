@@ -3,10 +3,17 @@
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { Heart } from "@medusajs/icons"
 import { useWishlistStore } from "@lib/store/wishlist"
+import { useEffect } from "react"
+import { getWishlist } from "@lib/util/wishlist"
 
 function WishlistBlock() {
   const wishlist = useWishlistStore((state: any) => state.wishlist)
 
+  useEffect(() => {
+    let wishlist = getWishlist()
+
+    useWishlistStore.setState({ wishlist })
+  }, [])
   return (
     <LocalizedClientLink
       className="hover:text-ui-fg-base relative"
