@@ -38,7 +38,10 @@ function WishlistPage({ region }: { region: Region }) {
       ) : (
         <div className="grid md:grid-cols-3 gap-4">
           {products.map((p) => (
-            <Container className="relative flex items-center justify-between">
+            <Container
+              key={p.handle}
+              className="relative flex items-center justify-between"
+            >
               <LocalizedClientLink
                 href={`/products/${p.handle}`}
                 className="group"

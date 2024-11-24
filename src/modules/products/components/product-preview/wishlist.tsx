@@ -12,7 +12,6 @@ function WishList({ variant }: { variant: string | undefined }) {
   const [inWishlist, setInWishlist] = useState(false)
 
   const handleClick = () => {
-    if (!variant) return
     if (inWishlist) {
       removeFromWishlist(variant)
       setInWishlist(false)
