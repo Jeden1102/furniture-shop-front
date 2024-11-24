@@ -8,10 +8,10 @@ import { Heart } from "@medusajs/icons"
 import { useState, useEffect } from "react"
 
 function WishList({ variant }: { variant: string | undefined }) {
-  if (!variant) return
   const [inWishlist, setInWishlist] = useState(false)
 
   const handleClick = () => {
+    if (!variant) return
     if (inWishlist) {
       removeFromWishlist(variant)
       setInWishlist(false)
@@ -22,8 +22,12 @@ function WishList({ variant }: { variant: string | undefined }) {
   }
 
   useEffect(() => {
-    setInWishlist(isInWishlist(variant))
-  }, [])
+    if (variant) {
+      setInWishlist(isInWishlist(variant))
+    }
+  }, [variant])
+
+  if (!variant) return null
 
   return (
     <button onClick={handleClick}>
